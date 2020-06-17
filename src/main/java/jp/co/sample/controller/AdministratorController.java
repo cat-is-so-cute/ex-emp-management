@@ -49,7 +49,7 @@ public class AdministratorController {
 		
 		session.setAttribute("administratorName", administrator.getName());
 		
-		return "/employee/list";
+		return "forward:/employee/showList";
 	}
 	
 	@RequestMapping("/toInsert")
