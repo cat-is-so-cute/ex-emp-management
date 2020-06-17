@@ -1,8 +1,17 @@
 package jp.co.sample.form;
 
+
+/**
+ * 管理者に関する情報をフォームから受け取るクラスです.
+ * @author ryosuke.nakanishi
+ *
+ */
 public class InsertAdministratorForm {
+	/** 名前 */
 	private String name;
+	/** メールアドレス */
 	private String mailAddress;
+	/** パスワード */
 	private String password;
 
 	public String getName() {

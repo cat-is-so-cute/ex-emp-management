@@ -3,7 +3,6 @@ package jp.co.sample.repository;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.amqp.RabbitProperties.Template;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
@@ -13,11 +12,17 @@ import org.springframework.stereotype.Repository;
 
 import jp.co.sample.domain.Employee;
 
+/**
+ * 従業員情報を操作するレポジトリです.
+ * @author ryosuke.nakanishi
+ *
+ */
 @Repository
 public class EmployeeRepository {
-	@Autowired
-	private NamedParameterJdbcTemplate template;
-	
+	/**
+	 * Employee型のRowMapperを定義します.
+	 *
+	 */	
 	private static final RowMapper<Employee> EMPLOYEE_ROW_MAPPER = (rs, i) -> {
 		Employee employee = new Employee();
 		
@@ -37,12 +42,28 @@ public class EmployeeRepository {
 		return employee;
 	};
 	
+	@Autowired
+	private NamedParameterJdbcTemplate template;
+	
+	/**
+	 * 全件検索を行うメソッドです.
+	 * 
+	 * @return 検索結果のリスト(従業員が存在しない場合はサイズ0のリストが返る)
+	 */		
 	public List<Employee> findAll() {
-		String sql = "SELECT * FROM employees ORDER BY hire_date;";
+		String sql = "SELECT * FROM employees ORDER BY hire_date DESC;";
 		
 		return template.query(sql, EMPLOYEE_ROW_MAPPER);
 	}
 	
+	/**
+	 * 主キー検索を行うメソッドです.
+	 * 
+	 * @param id
+	 * 				主キー
+	 * 
+	 * @return 検索結果(従業員が存在しない場合は例外が発生します)
+	 */		
 	public Employee load(Integer id) {
 		String sql = "SELECT * FROM employees WHERE id=:id;";
 		
@@ -51,6 +72,12 @@ public class EmployeeRepository {
 		return template.queryForObject(sql, param, EMPLOYEE_ROW_MAPPER);
 	}
 	
+	/**
+	 * 従業員情報を変更するメソッドです.
+	 * 
+	 * @param employee
+	 * 					従業員情報
+	 */			
 	public void update(Employee employee) {
 		SqlParameterSource param = new BeanPropertySqlParameterSource(employee);
 		

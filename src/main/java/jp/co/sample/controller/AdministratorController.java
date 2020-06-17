@@ -14,6 +14,12 @@ import jp.co.sample.form.InsertAdministratorForm;
 import jp.co.sample.form.LoginForm;
 import jp.co.sample.service.AdministratorService;
 
+
+/**
+ * 管理者登録画面を表示する処理を行うコントローラです.
+ * @author ryosuke.nakanishi
+ *
+ */
 @Controller
 @RequestMapping("/")
 public class AdministratorController {
@@ -33,11 +39,27 @@ public class AdministratorController {
 	@Autowired
 	private HttpSession session;
 	
+	
+	/**
+	 * ログイン画面を表示するメソッドです.
+	 * @return ログイン画面へフォワードする
+	 */
 	@RequestMapping("")
 	public String toLogin() {
 		return "/administrator/login";
 	}
 	
+	/**
+	 * ログイン処理を行うメソッドです.
+	 * @param form
+	 * 				ログイン画面からの入力
+	 * @param model
+	 * 				エラーメッセージを格納するリクエストスコープ
+	 * 
+	 * @return
+	 * 				入力情報が管理者情報と一致しない場合: ログイン画面へフォワード
+	 * 				入力情報が管理者情報と一致した場合: 従業員一覧の画面へフォワード
+	 */
 	@RequestMapping("/login")
 	public String login(LoginForm form, Model model) {
 		Administrator administrator = administratorService.login(form.getMailAddress(), form.getPassword());
@@ -52,11 +74,23 @@ public class AdministratorController {
 		return "forward:/employee/showList";
 	}
 	
+	/**
+	 * 管理者登録画面を表示するメソッドです.
+	 * 
+	 * @return 管理者登録画面へフォワード
+	 */
 	@RequestMapping("/toInsert")
 	public String toInsert() {
 		return "/administrator/insert";
 	}
 	
+	/**
+	 * 管理者登録を行うメソッドです.
+	 * @param form
+	 * 				登録する管理者情報が含まれるフォームです。
+	 * @return
+	 * 				ログイン画面へリダイレクトします。
+	 */
 	@RequestMapping("/insert")
 	public String insert(InsertAdministratorForm form) {
 		Administrator administrator = new Administrator();

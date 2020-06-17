@@ -1,9 +1,18 @@
 package jp.co.sample.domain;
 
+/**
+ * 管理者情報のドメインクラスです.
+ * @author ryosuke.nakanishi
+ *
+ */
 public class Administrator {
+	/** ID */
 	private Integer id;
+	/** 名前 */
 	private String name;
+	/** メールアドレス */
 	private String mailAddress;
+	/** パスワード */
 	private String password;
 
 	public Integer getId() {

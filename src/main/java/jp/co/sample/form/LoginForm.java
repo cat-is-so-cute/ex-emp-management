@@ -1,7 +1,15 @@
 package jp.co.sample.form;
 
+
+/**
+ * ログイン時の入力をフォームから受け取るクラスです.
+ * @author ryosuke.nakanishi
+ *
+ */
 public class LoginForm {
+	/** メールアドレス */
 	private String mailAddress;
+	/** パスワード */
 	private String password;
 
 	public String getMailAddress() {
