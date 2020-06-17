@@ -23,7 +23,7 @@ public class AdministratorRepository {
 	@Autowired
 	private NamedParameterJdbcTemplate template;
 	
-	public Administrator signUp(Administrator administrator) {
+	public void insert(Administrator administrator) {
 		String sql = "INSERT INTO administrators VALUES (:name, :mail_address, :password);";
 		
 		MapSqlParameterSource param = new MapSqlParameterSource().addValue("name", administrator.getName())
@@ -31,8 +31,6 @@ public class AdministratorRepository {
 																 .addValue("password", administrator.getPassword());
 		
 		template.update(sql, param);
-		
-		return administrator;
 	}
 	
 	
