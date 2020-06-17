@@ -1,12 +1,20 @@
 package jp.co.sample.repository;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.amqp.RabbitProperties.Template;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import jp.co.sample.domain.Employee;
 
 @Repository
 public class EmployeeRepository {
+	@Autowired
+	private NamedParameterJdbcTemplate template;
+	
 	private static final RowMapper<Employee> EMPLOYEE_ROW_MAPPER = (rs, i) -> {
 		Employee employee = new Employee();
 		
@@ -25,4 +33,10 @@ public class EmployeeRepository {
 		
 		return employee;
 	};
+	
+	public List<Employee> findAll(){
+		String sql = "SELECT * FROM employees ORDER BY hire_date;";
+		
+		return template.query(sql, EMPLOYEE_ROW_MAPPER);
+	}
 }
