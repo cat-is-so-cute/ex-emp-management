@@ -21,19 +21,23 @@ public class AdministratorController {
 	@Autowired
 	private AdministratorService administratorService;
 	
+	@RequestMapping("")
+	public String toLogin() {
+		return "/administrator/login";
+	}
+	
 	@RequestMapping("/toInsert")
 	public String toInsert() {
 		return "/administrator/insert";
 	}
 	
-	
-//	@RequestMapping("/toInsert")
-//	public String insert(InsertAdministratorForm form) {
-//		Administrator administrator = new Administrator();
-//		BeanUtils.copyProperties(form, administrator);
-//		
-//		administratorService.insert(administrator);
-//		
-//		return "login";
-//	}
+	@RequestMapping("/insert")
+	public String insert(InsertAdministratorForm form) {
+		Administrator administrator = new Administrator();
+		BeanUtils.copyProperties(form, administrator);
+		
+		administratorService.insert(administrator);
+		
+		return "redirect:/";
+	}
 }
