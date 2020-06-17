@@ -1,11 +1,13 @@
 package jp.co.sample.domain;
 
+import java.util.Date;
+
 public class Employee {
 	private Integer id;
 	private String name;
 	private String image;
 	private String gender;
-	private String hireDate;
+	private Date hireDate;
 	private String mailAddress;
 	private String zip_code;
 	private String address;
@@ -46,11 +48,11 @@ public class Employee {
 		this.gender = gender;
 	}
 
-	public String getHireDate() {
+	public Date getHireDate() {
 		return hireDate;
 	}
 
-	public void setHireDate(String hireDate) {
+	public void setHireDate(Date hireDate) {
 		this.hireDate = hireDate;
 	}
 
