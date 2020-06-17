@@ -19,6 +19,7 @@ public class AdministratorController {
 	private LoginForm setUpLoginForm () {
 		return new LoginForm();
 	}
+	@ModelAttribute
 	private InsertAdministratorForm setUpInsertAdministratorForm() {
 		return new InsertAdministratorForm();
 	}
