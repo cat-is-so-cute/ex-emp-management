@@ -11,6 +11,7 @@ import jp.co.sample.repository.EmployeeRepository;
 
 /**
  * 従業員情報を操作するサービスクラスです.
+ * 
  * @author ryosuke.nakanishi
  *
  */
@@ -27,5 +28,18 @@ public class EmployeeService {
 	 */
 	public List<Employee> showList() {
 		return employeeRepository.findAll();
+	}
+	
+	
+	/**
+	 * 従業員情報を一人分取得するメソッドです.
+	 * 
+	 * @param id
+	 * 			取得したい従業員のid
+	 * @return
+	 * 			取得した従業員情報
+	 */
+	public Employee showDetail(Integer id) {
+		return employeeRepository.load(id);
 	}
 }

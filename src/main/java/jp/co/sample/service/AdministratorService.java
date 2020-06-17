@@ -10,7 +10,8 @@ import jp.co.sample.repository.AdministratorRepository;
 
 
 /**
- * Administratorの業務処理を行うサービスクラスです.
+ * 管理者情報を業務処理を行うサービスクラスです.
+ * 
  * @author ryosuke.nakanishi
  *
  */

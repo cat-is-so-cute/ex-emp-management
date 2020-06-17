@@ -16,7 +16,8 @@ import jp.co.sample.service.AdministratorService;
 
 
 /**
- * 管理者登録画面を表示する処理を行うコントローラです.
+ * 管理者情報を操作するコントローラです.
+ * 
  * @author ryosuke.nakanishi
  *
  */
@@ -42,6 +43,7 @@ public class AdministratorController {
 	
 	/**
 	 * ログイン画面を表示するメソッドです.
+	 * 
 	 * @return ログイン画面へフォワードする
 	 */
 	@RequestMapping("")
@@ -51,6 +53,7 @@ public class AdministratorController {
 	
 	/**
 	 * ログイン処理を行うメソッドです.
+	 * 
 	 * @param form
 	 * 				ログイン画面からの入力
 	 * @param model
@@ -86,6 +89,7 @@ public class AdministratorController {
 	
 	/**
 	 * 管理者登録を行うメソッドです.
+	 * 
 	 * @param form
 	 * 				登録する管理者情報が含まれるフォームです。
 	 * @return

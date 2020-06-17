@@ -2,6 +2,7 @@ package jp.co.sample.domain;
 
 /**
  * 管理者情報のドメインクラスです.
+ * 
  * @author ryosuke.nakanishi
  *
  */

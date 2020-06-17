@@ -14,6 +14,7 @@ import jp.co.sample.domain.Employee;
 
 /**
  * 従業員情報を操作するレポジトリです.
+ * 
  * @author ryosuke.nakanishi
  *
  */
@@ -32,7 +33,7 @@ public class EmployeeRepository {
 		employee.setGender(rs.getString("gender"));
 		employee.setHireDate(rs.getDate("hire_date"));
 		employee.setMailAddress(rs.getString("mail_address"));
-		employee.setZip_code(rs.getString("zip_code"));
+		employee.setZipCode(rs.getString("zip_code"));
 		employee.setAddress(rs.getString("address"));
 		employee.setTelephone(rs.getString("telephone"));
 		employee.setSalary(rs.getInt("salary"));
@@ -46,7 +47,8 @@ public class EmployeeRepository {
 	private NamedParameterJdbcTemplate template;
 	
 	/**
-	 * 全件検索を行うメソッドです.
+	 * 全件検索を行うメソッドです.<br>
+	 * 入社日の降順で並び替えられます。
 	 * 
 	 * @return 検索結果のリスト(従業員が存在しない場合はサイズ0のリストが返る)
 	 */		

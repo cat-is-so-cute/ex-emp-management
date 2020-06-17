@@ -13,6 +13,7 @@ import jp.co.sample.domain.Administrator;
 
 /**
  * 管理者情報を操作するレポジトリです.
+ * 
  * @author ryosuke.nakanishi
  *
  */
@@ -60,6 +61,7 @@ public class AdministratorRepository {
 	 * 						メールアドレス
 	 * @param password
 	 * 						パスワード
+	 * @return 管理者情報
 	 */		
 	public Administrator findByMailAddressAndPassword(String mailAddress, String password) {
 		String sql = "SELECT * FROM administrators WHERE mail_address=:mailAddress AND password=:password;";
