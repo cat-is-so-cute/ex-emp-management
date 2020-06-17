@@ -44,12 +44,12 @@ public class AdministratorController {
 		
 		if (administrator == null) {
 			model.addAttribute("error", "メールアドレスまたはパスワードが不正です。");
-			return "";
+			return "/administrator/login";
 		}
 		
 		session.setAttribute("administratorName", administrator.getName());
 		
-		return "/employee/showList";
+		return "/employee/list";
 	}
 	
 	@RequestMapping("/toInsert")
