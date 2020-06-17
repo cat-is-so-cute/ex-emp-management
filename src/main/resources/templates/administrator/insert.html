@@ -29,7 +29,7 @@
 				
 <!-- ここから上を編集する必要はありません -->
 
-					<form method="post" action="login.html" th:action="@{/toInsert}" th:object="${insertAdministratorForm}">
+					<form method="post" action="login.html" th:action="@{/insert}" th:object="${insertAdministratorForm}">
 						<fieldset>
 							<legend>管理者登録<br>(システムにログインできる管理者を登録します)</legend>
 							<!-- 氏名 -->
@@ -56,7 +56,7 @@
 										<label  class="error-messages">
 											メールアドレスを入力してください
 										</label>
-										<input type="text" name="mailAddress" id="mailAddress" class="form-control" placeholder="yamada@mail.com" th:fiedl="*{mailAddress}">
+										<input type="text" name="mailAddress" id="mailAddress" class="form-control" placeholder="yamada@mail.com" th:field="*{mailAddress}">
 									</div>
 								</div>
 							</div>
@@ -84,7 +84,6 @@
 							</div>
 						</fieldset>
 					</form>
-
 
 <!-- ここから下を編集する必要はありません -->
 				</div>
