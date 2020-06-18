@@ -21,6 +21,9 @@ import jp.co.sample.service.AdministratorService;
  * @author ryosuke.nakanishi
  *
  */
+
+
+ 
 @Controller
 @RequestMapping("/")
 public class AdministratorController {
