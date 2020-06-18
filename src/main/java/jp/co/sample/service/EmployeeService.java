@@ -30,7 +30,6 @@ public class EmployeeService {
 		return employeeRepository.findAll();
 	}
 	
-	
 	/**
 	 * 従業員情報を一人分取得するメソッドです.
 	 * 
@@ -41,5 +40,15 @@ public class EmployeeService {
 	 */
 	public Employee showDetail(Integer id) {
 		return employeeRepository.load(id);
+	}
+	
+	/**
+	 * 従業員情報を更新するメソッドです.
+	 * 
+	 * @param employee
+	 * 			更新したい従業員情報
+	 */
+	public void update(Employee employee) {
+		employeeRepository.update(employee);
 	}
 }

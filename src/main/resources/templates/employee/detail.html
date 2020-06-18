@@ -64,7 +64,7 @@
 				
 <!-- ここから上を編集する必要はありません -->
 
-					<form method="post" action="list.html">
+					<form method="post" action="list.html" th:action="@{/employee/update}">
 						<fieldset>
 							<legend>従業員情報</legend>
 							<table class="table table-striped">
@@ -81,7 +81,7 @@
 							      写真
 							    </th>
 							    <td>
-							      <img src="../../static/img/e2.png" th:src="${employee.image}">
+							      <img src="../../static/img/e2.png" th:src="@{/img/} + ${employee.image}">
 							    </td>
 							  </tr>
 							  <tr>

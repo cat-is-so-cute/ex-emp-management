@@ -85,16 +85,16 @@ public class EmployeeRepository {
 		
 		StringBuilder sql = new StringBuilder();
 		sql.append("UPDATE employees SET ");
-		sql.append("name=:name ");
-		sql.append("image=:image ");
-		sql.append("gender=:gender ");
-		sql.append("hire_date=:hireDate ");
-		sql.append("mail_address=:mailAddress ");
-		sql.append("zip_code=:zipCode ");
-		sql.append("address=:address ");
-		sql.append("telephone=:telephone ");
-		sql.append("salary=:salary ");
-		sql.append("characteristics=:characteristics ");
+		sql.append("name=:name, ");
+		sql.append("image=:image, ");
+		sql.append("gender=:gender, ");
+		sql.append("hire_date=:hireDate, ");
+		sql.append("mail_address=:mailAddress, ");
+		sql.append("zip_code=:zipCode, ");
+		sql.append("address=:address, ");
+		sql.append("telephone=:telephone, ");
+		sql.append("salary=:salary, ");
+		sql.append("characteristics=:characteristics, ");
 		sql.append("dependents_count=:dependentsCount ");
 		sql.append("WHERE id=:id");
 		
