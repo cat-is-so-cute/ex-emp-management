@@ -53,9 +53,24 @@ public class EmployeeRepository {
 	 * @return 検索結果のリスト(従業員が存在しない場合はサイズ0のリストが返る)
 	 */		
 	public List<Employee> findAll() {
-		String sql = "SELECT * FROM employees ORDER BY hire_date DESC;";
+		StringBuilder sql = new StringBuilder();
+		sql.append("SELECT ");
+		sql.append("id");
+		sql.append(", name");
+		sql.append(", image");
+		sql.append(", gender");
+		sql.append(", hire_date");
+		sql.append(", mail_address");
+		sql.append(", zip_code");
+		sql.append(", address");
+		sql.append(", telephone");
+		sql.append(", salary");
+		sql.append(", characteristics");
+		sql.append(", dependents_count ");
+		sql.append("FROM employees ");
+		sql.append("ORDER BY hire_date DESC;");
 		
-		return template.query(sql, EMPLOYEE_ROW_MAPPER);
+		return template.query(sql.toString(), EMPLOYEE_ROW_MAPPER);
 	}
 	
 	/**
@@ -67,11 +82,26 @@ public class EmployeeRepository {
 	 * @return 検索結果(従業員が存在しない場合は例外が発生します)
 	 */		
 	public Employee load(Integer id) {
-		String sql = "SELECT * FROM employees WHERE id=:id;";
+		StringBuilder sql = new StringBuilder();
+		sql.append("SELECT ");
+		sql.append("id");
+		sql.append(", name");
+		sql.append(", image");
+		sql.append(", gender");
+		sql.append(", hire_date");
+		sql.append(", mail_address");
+		sql.append(", zip_code");
+		sql.append(", address");
+		sql.append(", telephone");
+		sql.append(", salary");
+		sql.append(", characteristics");
+		sql.append(", dependents_count ");
+		sql.append("FROM employees ");
+		sql.append("WHERE id=:id;");
 		
 		MapSqlParameterSource param = new MapSqlParameterSource().addValue("id", id);
 		
-		return template.queryForObject(sql, param, EMPLOYEE_ROW_MAPPER);
+		return template.queryForObject(sql.toString(), param, EMPLOYEE_ROW_MAPPER);
 	}
 	
 	/**

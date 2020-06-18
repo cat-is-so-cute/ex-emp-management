@@ -48,6 +48,7 @@ public class EmployeeController {
 	
 	/**
 	 * 従業員情報の詳細を表示するためのメソッドです.
+	 * 
 	 * @param id
 	 * 				詳細を表示したい従業員のid
 	 * @param model

@@ -105,6 +105,13 @@ public class AdministratorController {
 		return "redirect:/";
 	}
 	
+	/**
+	 * ログアウト処理を行うためのメソッドです.<br>
+	 * セッションを破棄し、ログイン画面へ遷移します。
+	 * 
+	 * @return
+	 * 				ログイン画面へリダイレクトします
+	 */
 	@RequestMapping("/logout")
 	public String logout() {
 		session.invalidate();
