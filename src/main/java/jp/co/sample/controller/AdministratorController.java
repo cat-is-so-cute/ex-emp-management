@@ -104,4 +104,11 @@ public class AdministratorController {
 		
 		return "redirect:/";
 	}
+	
+	@RequestMapping("/logout")
+	public String logout() {
+		session.invalidate();
+		
+		return "redirect:/";
+	}
 }
